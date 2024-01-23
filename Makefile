@@ -6,7 +6,7 @@
 #    By: ftholoza <ftholoza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/03 15:44:24 by ftholoza          #+#    #+#              #
-#    Updated: 2023/12/08 15:10:36 by ftholoza         ###   ########.fr        #
+#    Updated: 2024/01/23 17:21:41 by ftholoza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,21 +22,15 @@ MAIN = srcs/main.c
 OBJ = $(SRC:.c=.o)
 OBJB = $(SRCB:.c=.o)
 REALNAME = push_swap
-REALNAMEB = checker
 
 
 all : $(REALNAME)
 re : fclean all
-bonus : $(REALNAMEB)
-$(REALNAMEB) : $(OBJB)
-	$(CC) $(FLAGS) $(OBJB) -I $(HEADERB) -o $(REALNAMEB)
 $(REALNAME) : $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -I $(HEADER) -o $(REALNAME)
 $(OBJ) : $(SRCS)
 	$(CC) $(FLAGS) -c $(SRCS)
-$(OBJB) : $(SRCSB)
-	$(CC) $(FLAGS) -c $(SRCSB)
 clean :
-	rm -f $(OBJ) $(OBJB)
+	rm -f $(OBJ)
 fclean : clean
-	rm -f $(REALNAME) $(REALNAMEB)
+	rm -f $(REALNAME)
